@@ -17,16 +17,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderHeightChanged(_ sender: UISlider) {
-        var height = round(100 * sender.value) / 100
+        let height = round(100 * sender.value) / 100
         heightValueLabel.text = "\(height)m"
   
     }
     @IBAction func sliderWeightChanged(_ sender: UISlider) {
-        var weight = Int(sender.value)
+        let weight = Int(sender.value)
         weightValueLabel.text = "\(weight)Kg"
        
     }
     
+    @IBAction func calculatePressed(_ sender: UIButton) {
+        let weight = sliderWeight.value
+        let height = sliderHeight.value
+        let bmi = round(100 * (weight / pow(height, 2))) / 100
+        print("BMI: \(bmi)")
+    }
     
 }
 
